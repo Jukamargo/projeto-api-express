@@ -1,7 +1,16 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "express",
-  "installCommand": "npm ci",
-  "buildCommand": "",
-  "outputDirectory": null
+  "version": 2,
+  "builds": [
+    {
+      "src": "primeiro-projeto-express/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/primeiro-projeto-express/server.js"
+    }
+  ]
 }
