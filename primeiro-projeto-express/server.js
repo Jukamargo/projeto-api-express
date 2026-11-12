@@ -19,9 +19,12 @@ app.get("/", (req, res) => {
     });
 });
 
-// Iniciar servidor
-app.listen(PORT, () => {
-    console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
-});
+// Iniciar servidor apenas ao executar este arquivo diretamente (local ou Render).
+// Na Vercel, a aplicação exportada abaixo recebe as requisições.
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+    });
+}
 
 module.exports = app;
